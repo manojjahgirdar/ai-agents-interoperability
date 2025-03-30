@@ -1,0 +1,20 @@
+[project]
+name = "model-context-protocol-demo"
+version = "1.0.0"
+description = "Demo model context protocol illustration."
+readme = "README.md"
+requires-python = ">=3.11.9"
+dependencies = [
+    "beeai-framework>=0.1.8",
+    "fastmcp>=0.4.1",
+    "ibm-watsonx-ai>=1.3.0",
+    "langchain-community>=0.3.20",
+    "langchain-core>=0.3.45",
+    "langchain-ibm>=0.3.8",
+    "langchain-mcp-adapters>=0.0.5",
+    "langchain-openai>=0.3.9",
+    "langgraph>=0.3.16",
+    "openai-agents>=0.0.7",
+    "requests>=2.32.2",
+    "tavily-python>=0.5.1",
+]
