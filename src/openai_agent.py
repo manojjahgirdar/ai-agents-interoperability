@@ -1,4 +1,4 @@
-# Work in progress
+# Note: This code is currently breaking, I am working on fixing it!
 
 from agents import Agent, Runner, MCPServerStdio
 
