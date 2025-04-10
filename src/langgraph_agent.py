@@ -66,7 +66,7 @@ async def invoke_agent(query):
 
 if __name__ == "__main__":
     
-    query = "Who is Manoj Jahgirdar?"
+    query = "Give me 5 tourist attractions and weather details for Bengaluru"
     asyncio.run(invoke_agent(query=query))
 
 
