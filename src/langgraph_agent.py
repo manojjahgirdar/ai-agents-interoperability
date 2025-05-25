@@ -1,5 +1,3 @@
-from ibm_watsonx_ai.metanames import GenTextParamsMetaNames
-from langchain_ibm import ChatWatsonx
 from langchain_openai import ChatOpenAI
 
 from contextlib import asynccontextmanager
@@ -13,22 +11,9 @@ import os
 
 if os.getenv('OPENAI_API_KEY'):
     llm = ChatOpenAI(model="o3-mini")
-elif os.getenv('WATSONX_APIKEY'):
-    llm = ChatWatsonx(
-        model_id=os.environ['MODEL_ID'],
-        url=os.environ['WATSONX_URL'],
-        project_id=os.environ['WX_PROJECT_ID'],
-        params={
-            GenTextParamsMetaNames.MAX_NEW_TOKENS: 250,
-            GenTextParamsMetaNames.MIN_NEW_TOKENS: 20,
-            GenTextParamsMetaNames.DECODING_METHOD: 'greedy',
-            
-        },
-    )
 else:
-    print('Export OPENAI_API_KEY or WATSONX_APIKEY to initialize OpenAI or Watsonx LLM.')
+    print('Export OPENAI_API_KEY to initialize OpenAI LLM.')
     exit(1)
-    
 
 server_params = StdioServerParameters(
     command="python",
