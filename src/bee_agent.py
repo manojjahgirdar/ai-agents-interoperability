@@ -1,10 +1,15 @@
 import asyncio
 import os
 from beeai_framework.backend.chat import ChatModel
+from beeai_framework.adapters.openai import OpenAIChatModel
 from beeai_framework.workflows.agent import AgentWorkflow, AgentWorkflowInput
 from beeai_framework.tools.mcp_tools import MCPTool
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
+import logging
+
+logging.basicConfig(level=os.getenv('LOG_LEVEL', 'ERROR'))
+logger = logging.getLogger(__name__)
 
 server_params = StdioServerParameters(
     command="python",
@@ -18,21 +23,21 @@ async def get_mcp_tools(name) -> MCPTool:
         tools = await MCPTool.from_client(session)
         filter_tool = filter(lambda tool: tool.name == name, tools)
         tool = list(filter_tool)
-        print("Loaded MCP tool: ", tool[0].name)
+        logger.info("Loaded MCP tool: ", tool[0].name)
         return tool[0]
 
 mcp_weather_tool = asyncio.run(get_mcp_tools('weather_tool'))
 mcp_search_tool = asyncio.run(get_mcp_tools('search_tool'))
 
-async def main() -> None:
-    llm = ChatModel.from_name(
-        f"watsonx:{os.environ['MODEL_ID']}",
-        {
-            "project_id": os.environ['WX_PROJECT_ID'],
-            "api_key": os.environ['WATSONX_APIKEY'],
-            "api_base": os.environ['WATSONX_URL']
-        },
+def _get_openai(model="gpt-3.5-turbo"):
+    return OpenAIChatModel(
+        model=model,
+        api_key=os.getenv("OPENAI_API_KEY"),
+        api_base="https://api.openai.com/v1",
     )
+
+async def main() -> None:
+    llm = _get_openai()
 
     workflow = AgentWorkflow(name="Smart assistant")
 
