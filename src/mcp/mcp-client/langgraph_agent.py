@@ -1,13 +1,16 @@
 from langchain_openai import ChatOpenAI
-
 from contextlib import asynccontextmanager
 from langchain_mcp_adapters.tools import load_mcp_tools
 from langgraph.prebuilt import create_react_agent
-
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 import asyncio
 import os
+import logging
+
+# Set up logging
+logging.basicConfig(level=os.getenv('LOG_LEVEL', 'ERROR'))
+logger = logging.getLogger(__name__)
 
 if os.getenv('OPENAI_API_KEY'):
     llm = ChatOpenAI(model="o3-mini")
@@ -30,8 +33,8 @@ async def main():
             # Get tools
             tools = await load_mcp_tools(session)
             for tool in tools:
-                print(f"Loaded MCP tool: {tool.name}")
-            #     print(f"Description: {tool.description}")
+                logger.info(f"Loaded MCP tool: {tool.name}")
+            #     logger.info(f"Description: {tool.description}")
 
             # Create and run the agent
             agent = create_react_agent(

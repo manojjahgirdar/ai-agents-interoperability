@@ -8,4 +8,4 @@ mcp = FastMCP("Utility Tools")
 from tools import *
 
 if __name__ == "__main__":
-    mcp.run(transport="stdio") # change the transport to "sse" to deploy as remote MCP server
+    mcp.run(transport="sse") # change the transport to "sse" to deploy as remote MCP server

@@ -80,7 +80,7 @@ def get_flight_search_results(
                 " → ".join(time_parts),
                 duration_str,
                 ", ".join(layovers) if layovers else "Non-stop",
-                f"${itinerary.get('price', '-')}",
+                f"{currency} {itinerary.get('price', '-')}",
                 f"{emissions:.0f} kg"
                 # "Yes" if delayed else "No"
             ]
