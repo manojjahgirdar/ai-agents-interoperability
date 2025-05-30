@@ -31,4 +31,8 @@ Instructions to setup the Agents Interoperability can be found here: [Instructio
    ```bash
    uv sync
    ```
- 
+ 1. Export env variables
+    ```bash
+    cp env.example .env
+    ```
+    >Fill the values
