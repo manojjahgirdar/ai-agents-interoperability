@@ -11,7 +11,7 @@ Instructions to setup the Agents Interoperability can be found here: [Instructio
 
 ## Pre-requirements
 
-1. I have used Tavily search for the web search tool implementation, create a Tavily API Key here: <https://www.tavily.com/>
+1. I have used Tavily search for the web search tool implementation, create a Tavily API Key here: <https://www.tavily.com>
 2. I have used Google SERP APIs for the flight search tool implementation, create a SERP API key here: 
 
 ## Setup codebase
@@ -54,5 +54,6 @@ Instructions to setup the Agents Interoperability can be found here: [Instructio
    1. To launch the acp server, in another terminal run:
       ```bash
       cd src/acp/acp-server
+      export REMOTE_MCP_URL=http://localhost:8000/sse
       uv run acp_server.py
       ```
