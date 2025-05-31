@@ -11,4 +11,43 @@ Instructions to setup the Agents Interoperability can be found here: [Instructio
 
 ## Setup codebase
 
-coming soon . . .
+1. Clone the repo.
+   ```bash
+   git clone https://github.com/manojjahgirdar/ai-agents-interoperability.git
+   ```
+   > Note: UV Package manager is recommended.
+   
+1. Install the uv package manager.
+   ```bash
+   pip install pipx
+   pipx install uv
+   ```
+   
+1. Once the uv package manager is installed, create a virtual environment and activate it.
+   ```bash
+   uv venv
+   source .venv/bin/activate
+   ```
+   
+1. Install the python dependencies.
+   ```bash
+   uv sync
+   ```
+   
+ 1. Export env variables
+    ```bash
+    cp env.example .env
+    ```
+    >Fill the env values
+
+1. Launch the mcp/acp servers.
+   1. To launch the mcp server run:
+      ```bash
+      cd src/mcp/mcp-server
+      uv run mcp_server.py
+      ```
+   1. To launch the acp server, in another terminal run:
+      ```bash
+      cd src/acp/acp-server
+      uv run acp_server.py
+      ```
