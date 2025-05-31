@@ -54,5 +54,6 @@ Instructions to setup the Agents Interoperability can be found here: [Instructio
    1. To launch the acp server, in another terminal run:
       ```bash
       cd src/acp/acp-server
+      export REMOTE_MCP_URL=http://localhost:8000/sse
       uv run acp_server.py
       ```
