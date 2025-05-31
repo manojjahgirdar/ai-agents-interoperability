@@ -9,6 +9,11 @@ Learn how to architect Agentic AI solutions which are framework agnostic, LLM Ag
 
 Instructions to setup the Agents Interoperability can be found here: [Instructions to setup](https://medium.com/@manojjahgirdar/list/ai-agents-interoperability-607c343d3b1c)
 
+## Pre-requirements
+
+1. I have used Tavily search for the web search tool implementation, create a Tavily API Key here: <https://www.tavily.com/>
+2. I have used Google SERP APIs for the flight search tool implementation, create a SERP API key here: 
+
 ## Setup codebase
 
 1. Clone the repo.
