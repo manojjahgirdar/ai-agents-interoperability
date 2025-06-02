@@ -7,7 +7,7 @@ Learn how to architect Agentic AI solutions which are framework agnostic, LLM Ag
 
 ## Blogs for the series
 
-Instructions to setup the Agents Interoperability can be found here: [Instructions to setup](https://medium.com/@manojjahgirdar/list/ai-agents-interoperability-607c343d3b1c)
+Read more about AI Agents Interoperability here: [Medium.com](https://medium.com/@manojjahgirdar/list/ai-agents-interoperability-607c343d3b1c)
 
 ## Pre-requirements
 
