@@ -5,7 +5,7 @@ Learn how to architect Agentic AI solutions which are framework agnostic, LLM Ag
 
 ![image](https://github.com/user-attachments/assets/15f1d121-77d3-4937-a394-9ee9c87af1a8)
 
-## Blogs for the series
+## Medium articles
 
 Read more about AI Agents Interoperability here: [Medium.com](https://medium.com/@manojjahgirdar/list/ai-agents-interoperability-607c343d3b1c)
 
