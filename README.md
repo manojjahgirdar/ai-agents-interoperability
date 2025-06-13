@@ -54,6 +54,6 @@ Read more about AI Agents Interoperability here: [Medium.com](https://medium.com
    1. To launch the acp server, in another terminal run:
       ```bash
       cd src/acp/acp-server
-      export REMOTE_MCP_URL=http://localhost:8000/sse
+      export REMOTE_MCP_URL=http://127.0.0.1:8000/sse
       uv run acp_server.py
       ```
