@@ -58,3 +58,7 @@ Read more about AI Agents Interoperability here: [Medium.com](https://medium.com
       export REMOTE_MCP_URL=http://127.0.0.1:8000/sse
       uv run acp_server.py
       ```
+1. To run the notebooks, goto `src/notebooks` directory and run the following command:
+   ```bash
+   jupyter notebook
+   ```
