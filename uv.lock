@@ -42,6 +42,7 @@ dependencies = [
     { name = "autogen-ext", extra = ["mcp", "openai"] },
     { name = "beeai-framework" },
     { name = "crewai" },
+    { name = "fastapi-mcp" },
     { name = "fastmcp" },
     { name = "google-search-results" },
     { name = "ibm-watsonx-ai" },
@@ -54,8 +55,11 @@ dependencies = [
     { name = "langchain-mcp-adapters" },
     { name = "langchain-openai" },
     { name = "langgraph" },
+    { name = "mcp" },
     { name = "openai-agents" },
+    { name = "pydantic" },
     { name = "requests" },
+    { name = "sqlalchemy" },
     { name = "tabulate" },
     { name = "tavily-python" },
 ]
@@ -67,6 +71,7 @@ requires-dist = [
     { name = "autogen-ext", extras = ["mcp", "openai"], specifier = ">=0.5.7" },
     { name = "beeai-framework", specifier = ">=0.1.8" },
     { name = "crewai", specifier = ">=0.134.0" },
+    { name = "fastapi-mcp", specifier = ">=0.4.0" },
     { name = "fastmcp", specifier = ">=0.4.1" },
     { name = "google-search-results", specifier = ">=2.4.2" },
     { name = "ibm-watsonx-ai", specifier = ">=1.3.0" },
@@ -79,8 +84,11 @@ requires-dist = [
     { name = "langchain-mcp-adapters", specifier = ">=0.0.5" },
     { name = "langchain-openai", specifier = ">=0.3.9" },
     { name = "langgraph", specifier = ">=0.3.16" },
+    { name = "mcp", specifier = ">=1.12.3" },
     { name = "openai-agents", specifier = ">=0.0.7" },
+    { name = "pydantic", specifier = ">=2.10.6" },
     { name = "requests", specifier = ">=2.32.2" },
+    { name = "sqlalchemy", specifier = ">=2.0.39" },
     { name = "tabulate", specifier = ">=0.9.0" },
     { name = "tavily-python", specifier = ">=0.5.1" },
 ]
@@ -985,6 +993,27 @@ wheels = [
 [package.optional-dependencies]
 standard = [
     { name = "uvicorn", extra = ["standard"] },
+]
+
+[[package]]
+name = "fastapi-mcp"
+version = "0.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "fastapi" },
+    { name = "httpx" },
+    { name = "mcp" },
+    { name = "pydantic" },
+    { name = "pydantic-settings" },
+    { name = "requests" },
+    { name = "rich" },
+    { name = "tomli" },
+    { name = "typer" },
+    { name = "uvicorn" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6d/1e/e3ba42f2e240dc67baabc431c68a82e380bcdae4e8b7d1310a756b2033fc/fastapi_mcp-0.4.0.tar.gz", hash = "sha256:d4ca9410996f4c7b8ea0d7b20fdf79878dc359ebf89cbf3b222e0b675a55097d", size = 184201, upload-time = "2025-07-28T12:11:05.652Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/29/83/6bf02ff9e3ca1d24765050e3b51dceae9bb69909cc5385623cf6f3fd7c23/fastapi_mcp-0.4.0-py3-none-any.whl", hash = "sha256:d4a3fe7966af24d44e4b412720561c95eb12bed999a4443a88221834b3b15aec", size = 25085, upload-time = "2025-07-28T12:11:04.472Z" },
 ]
 
 [[package]]
@@ -2284,22 +2313,24 @@ wheels = [
 
 [[package]]
 name = "mcp"
-version = "1.9.1"
+version = "1.12.3"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "anyio" },
     { name = "httpx" },
     { name = "httpx-sse" },
+    { name = "jsonschema" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "python-multipart" },
+    { name = "pywin32", marker = "sys_platform == 'win32'" },
     { name = "sse-starlette" },
     { name = "starlette" },
     { name = "uvicorn", marker = "sys_platform != 'emscripten'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e7/bc/54aec2c334698cc575ca3b3481eed627125fb66544152fa1af927b1a495c/mcp-1.9.1.tar.gz", hash = "sha256:19879cd6dde3d763297617242888c2f695a95dfa854386a6a68676a646ce75e4", size = 316247, upload-time = "2025-05-22T15:52:21.26Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/4d/19/9955e2df5384ff5dd25d38f8e88aaf89d2d3d9d39f27e7383eaf0b293836/mcp-1.12.3.tar.gz", hash = "sha256:ab2e05f5e5c13e1dc90a4a9ef23ac500a6121362a564447855ef0ab643a99fed", size = 427203, upload-time = "2025-07-31T18:36:36.795Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a6/c0/4ac795585a22a0a2d09cd2b1187b0252d2afcdebd01e10a68bbac4d34890/mcp-1.9.1-py3-none-any.whl", hash = "sha256:2900ded8ffafc3c8a7bfcfe8bc5204037e988e753ec398f371663e6a06ecd9a9", size = 130261, upload-time = "2025-05-22T15:52:19.702Z" },
+    { url = "https://files.pythonhosted.org/packages/8f/8b/0be74e3308a486f1d127f3f6767de5f9f76454c9b4183210c61cc50999b6/mcp-1.12.3-py3-none-any.whl", hash = "sha256:5483345bf39033b858920a5b6348a303acacf45b23936972160ff152107b850e", size = 158810, upload-time = "2025-07-31T18:36:34.915Z" },
 ]
 
 [[package]]
