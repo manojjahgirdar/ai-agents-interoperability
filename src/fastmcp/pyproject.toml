@@ -1,0 +1,10 @@
+[project]
+name = "fastapi-mcp-demo"
+version = "0.1.0"
+description = "FastAPI MCP Demonstration"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi-mcp>=0.4.0",
+    "pydantic[email]>=2.11.7",
+]
