@@ -1,8 +1,6 @@
 #
 # Code assisted by OpenAI: GPT-5
 # Simple SQLite helper for common CRUD and DDL operations.
-#
-# Data source: https://www.mysqltutorial.org/wp-content/uploads/2023/10/mysqlsampledatabase.zip
 
 import sqlite3
 from contextlib import contextmanager
