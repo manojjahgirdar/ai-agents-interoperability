@@ -185,5 +185,5 @@ mcp = FastApiMCP(
 
 mcp.mount_http()
 
-if __name__ == "__main__": # this is called as a guard which 
+if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
