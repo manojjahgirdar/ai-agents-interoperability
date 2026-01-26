@@ -35,4 +35,5 @@ dependencies = [
 [tool.uv.workspace]
 members = [
     "src/mcp-prod-server",
+    "src/deep-agents/financial_market_analysis",
 ]

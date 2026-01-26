@@ -11,6 +11,7 @@ resolution-markers = [
 [manifest]
 members = [
     "ai-agent-interoperability-demo",
+    "financial-market-analysis",
     "mcp-prod-server",
 ]
 
@@ -201,6 +202,25 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/ee/67/531ea369ba64dcff5ec9c3402f9f51bf748cec26dde048a2f973a4eea7f5/annotated_types-0.7.0.tar.gz", hash = "sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89", size = 16081, upload-time = "2024-05-20T21:33:25.928Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/78/b6/6307fbef88d9b5ee7421e68d78a9f162e0da4900bc5f5793f6d3d0e34fb8/annotated_types-0.7.0-py3-none-any.whl", hash = "sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53", size = 13643, upload-time = "2024-05-20T21:33:24.1Z" },
+]
+
+[[package]]
+name = "anthropic"
+version = "0.72.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "distro" },
+    { name = "docstring-parser" },
+    { name = "httpx" },
+    { name = "jiter" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/dd/f3/feb750a21461090ecf48bbebcaa261cd09003cc1d14e2fa9643ad59edd4d/anthropic-0.72.1.tar.gz", hash = "sha256:a6d1d660e1f4af91dddc732f340786d19acaffa1ae8e69442e56be5fa6539d51", size = 415395, upload-time = "2025-11-11T16:53:29.001Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/51/05/d9d45edad1aa28330cea09a3b35e1590f7279f91bb5ab5237c70a0884ea3/anthropic-0.72.1-py3-none-any.whl", hash = "sha256:81e73cca55e8924776c8c4418003defe6bf9eaf0cd92beb94c8dbf537b95316f", size = 357373, upload-time = "2025-11-11T16:53:27.438Z" },
 ]
 
 [[package]]
@@ -889,6 +909,21 @@ wheels = [
 ]
 
 [[package]]
+name = "deepagents"
+version = "0.0.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langchain" },
+    { name = "langchain-anthropic", version = "0.3.10", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.13'" },
+    { name = "langchain-anthropic", version = "0.3.22", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version >= '3.13'" },
+    { name = "langgraph" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/84/27/7041c1f48a24949432d6241fdb53504e2a09a4bdf9a6a85fb19d5617d739/deepagents-0.0.5.tar.gz", hash = "sha256:bede9023735e44384a7a38242261b8c378181fd9c6ce1b98849cd1127bed9b30", size = 19852, upload-time = "2025-09-01T20:15:15.373Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4f/60/e0e77290e651a0f6718ff5f396c61f2a08245c7304daaade119965ecbb87/deepagents-0.0.5-py3-none-any.whl", hash = "sha256:698998d056c931db74cd638981af7580bd4a1475b949f6282b3032a152eba638", size = 21911, upload-time = "2025-09-01T20:15:14.156Z" },
+]
+
+[[package]]
 name = "defusedxml"
 version = "0.7.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1158,6 +1193,23 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/0a/10/c23352565a6544bdc5353e0b15fc1c563352101f30e24bf500207a54df9a/filelock-3.18.0.tar.gz", hash = "sha256:adbc88eabb99d2fec8c9c1b229b171f18afa655400173ddc653d5d01501fb9f2", size = 18075, upload-time = "2025-03-14T07:11:40.47Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/4d/36/2a115987e2d8c300a974597416d9de88f2444426de9571f4b59b2cca3acc/filelock-3.18.0-py3-none-any.whl", hash = "sha256:c401f4f8377c4464e6db25fff06205fd89bdd83b65eb0488ed1b160f780e21de", size = 16215, upload-time = "2025-03-14T07:11:39.145Z" },
+]
+
+[[package]]
+name = "financial-market-analysis"
+version = "0.1.0"
+source = { virtual = "src/deep-agents/financial_market_analysis" }
+dependencies = [
+    { name = "deepagents" },
+    { name = "langchain-ollama" },
+    { name = "tavily-python" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "deepagents", specifier = ">=0.0.5" },
+    { name = "langchain-ollama", specifier = ">=0.3.10" },
+    { name = "tavily-python", specifier = ">=0.5.1" },
 ]
 
 [[package]]
@@ -2115,6 +2167,42 @@ wheels = [
 ]
 
 [[package]]
+name = "langchain-anthropic"
+version = "0.3.10"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.12.4' and python_full_version < '3.13'",
+    "python_full_version >= '3.12' and python_full_version < '3.12.4'",
+    "python_full_version < '3.12'",
+]
+dependencies = [
+    { name = "anthropic", marker = "python_full_version < '3.13'" },
+    { name = "langchain-core", marker = "python_full_version < '3.13'" },
+    { name = "pydantic", marker = "python_full_version < '3.13'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/27/81/0e1e38694afd10d057dab8292823e1fd9dce2b03757b1cf581de7e3ea362/langchain_anthropic-0.3.10.tar.gz", hash = "sha256:b4364434393476bf076c8326a51261a55d4e4cfefda01b8adf53533e8ebd8ec5", size = 44023, upload-time = "2025-03-14T16:42:54.094Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f4/aa/ca26a13aff12228cb3123cdaf23ee19ffa759102146fb81e3c3bccc599ef/langchain_anthropic-0.3.10-py3-none-any.whl", hash = "sha256:f4aa8ec03b1f5bcfbb73d2db516bddf009bc457e524f1ee8d651c1fe7338603f", size = 25527, upload-time = "2025-03-14T16:42:52.623Z" },
+]
+
+[[package]]
+name = "langchain-anthropic"
+version = "0.3.22"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.13'",
+]
+dependencies = [
+    { name = "anthropic", marker = "python_full_version >= '3.13'" },
+    { name = "langchain-core", marker = "python_full_version >= '3.13'" },
+    { name = "pydantic", marker = "python_full_version >= '3.13'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b8/ac/4791e4451e1972f80cb517e19d003678239921fc0685a4c4b265fe47e216/langchain_anthropic-0.3.22.tar.gz", hash = "sha256:6c440278bd8012bc94ae341f416bfc724fdc5d2d2b69630fe6e82fa6ee9682ac", size = 471312, upload-time = "2025-10-09T18:39:26.983Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d1/ac/019fd9d45716a4d74c154f160665074ae49885ff4764c8313737f5fda348/langchain_anthropic-0.3.22-py3-none-any.whl", hash = "sha256:17721b240342a1a3f70bf0b2ff33520ba60d69008e3b9433190a62a52ff87cf6", size = 32592, upload-time = "2025-10-09T18:39:25.766Z" },
+]
+
+[[package]]
 name = "langchain-cohere"
 version = "0.4.4"
 source = { registry = "https://pypi.org/simple" }
@@ -2155,7 +2243,7 @@ wheels = [
 
 [[package]]
 name = "langchain-core"
-version = "0.3.45"
+version = "0.3.79"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "jsonpatch" },
@@ -2166,9 +2254,9 @@ dependencies = [
     { name = "tenacity" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/38/85/4c896de87bc20915c5bf7be32fd325f4dfdbd0b262b4e49597a11d909ef7/langchain_core-0.3.45.tar.gz", hash = "sha256:a39b8446495d1ea97311aa726478c0a13ef1d77cb7644350bad6d9d3c0141a0c", size = 529844, upload-time = "2025-03-13T22:53:41.63Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c8/99/f926495f467e0f43289f12e951655d267d1eddc1136c3cf4dd907794a9a7/langchain_core-0.3.79.tar.gz", hash = "sha256:024ba54a346dd9b13fb8b2342e0c83d0111e7f26fa01f545ada23ad772b55a60", size = 580895, upload-time = "2025-10-09T21:59:08.359Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b6/8b/c41dbe55a502b71d84734be75c40d5a62fd6024dd8417c9ca2417e308782/langchain_core-0.3.45-py3-none-any.whl", hash = "sha256:fe560d644c102c3f5dcfb44eb5295e26d22deab259fdd084f6b1b55a0350b77c", size = 415868, upload-time = "2025-03-13T22:53:40.02Z" },
+    { url = "https://files.pythonhosted.org/packages/fc/71/46b0efaf3fc6ad2c2bd600aef500f1cb2b7038a4042f58905805630dd29d/langchain_core-0.3.79-py3-none-any.whl", hash = "sha256:92045bfda3e741f8018e1356f83be203ec601561c6a7becfefe85be5ddc58fdb", size = 449779, upload-time = "2025-10-09T21:59:06.493Z" },
 ]
 
 [[package]]
@@ -2195,6 +2283,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/35/ef/e0730910e84d0ee73ac9e09eb44dd7a5ca1aecc06cb34d5a9fd639d8ad74/langchain_mcp_adapters-0.1.2.tar.gz", hash = "sha256:d6baa89878e6d30f6aae0eee984fc28ea715090ed87ba8728b49c761f05c7651", size = 18813, upload-time = "2025-05-29T00:57:34.4Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/84/3f/e9802366db9f99877a4d49b2d5dc269ca62347d2cc2bd4ea127a0d6ed97b/langchain_mcp_adapters-0.1.2-py3-none-any.whl", hash = "sha256:a3a5a68f9f56a301ee7d734ac5e4dda43c593c4793759c4f6bd99d1c3ce85feb", size = 12908, upload-time = "2025-05-29T00:57:33.258Z" },
+]
+
+[[package]]
+name = "langchain-ollama"
+version = "0.3.10"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "langchain-core" },
+    { name = "ollama" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/73/c9/ff996fc5fa2d8d23136f07c56e88a1013fe1e03a35ef3e65899baa73c49e/langchain_ollama-0.3.10.tar.gz", hash = "sha256:5d942d331c44351bae5c5c5965603ceb20b0ee4d70082290f4b15bc638559756", size = 35771, upload-time = "2025-10-02T15:53:20.974Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4b/f2/d87767a106021206fb53faf7ae4517d365d353dc29a1649b9f3e47eef940/langchain_ollama-0.3.10-py3-none-any.whl", hash = "sha256:7550792872e8f86d362568e9ceb0f8085428bc59946c7b44e726358ba4b280f9", size = 27646, upload-time = "2025-10-02T15:53:19.89Z" },
 ]
 
 [[package]]
@@ -2279,7 +2380,7 @@ wheels = [
 
 [[package]]
 name = "langsmith"
-version = "0.3.16"
+version = "0.3.45"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
@@ -2290,9 +2391,9 @@ dependencies = [
     { name = "requests-toolbelt" },
     { name = "zstandard" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/4a/74/fdae1f48f8efbc3c558495eda386705f904d88be248768a982c692f0f231/langsmith-0.3.16.tar.gz", hash = "sha256:dbf22b9426f8ece61089dad825a483db27095904648b8dcd92b620920af6a9ff", size = 330525, upload-time = "2025-03-19T00:17:26.72Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/be/86/b941012013260f95af2e90a3d9415af4a76a003a28412033fc4b09f35731/langsmith-0.3.45.tar.gz", hash = "sha256:1df3c6820c73ed210b2c7bc5cdb7bfa19ddc9126cd03fdf0da54e2e171e6094d", size = 348201, upload-time = "2025-06-05T05:10:28.948Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/41/15/f9a3901df87b5dc80b03d9b0fc4df2195e5d649ecbef8436974c1d2dcb2b/langsmith-0.3.16-py3-none-any.whl", hash = "sha256:c8f53b11e68042d2d53db13c91db5e81e2c02974bbaf2218dad34ffd77e45744", size = 344507, upload-time = "2025-03-19T00:17:24.618Z" },
+    { url = "https://files.pythonhosted.org/packages/6a/f4/c206c0888f8a506404cb4f16ad89593bdc2f70cf00de26a1a0a7a76ad7a3/langsmith-0.3.45-py3-none-any.whl", hash = "sha256:5b55f0518601fa65f3bb6b1a3100379a96aa7b3ed5e9380581615ba9c65ed8ed", size = 363002, upload-time = "2025-06-05T05:10:27.228Z" },
 ]
 
 [[package]]
@@ -2832,6 +2933,19 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/0b/5f/19930f824ffeb0ad4372da4812c50edbd1434f678c90c2733e1188edfc63/oauthlib-3.3.1.tar.gz", hash = "sha256:0f0f8aa759826a193cf66c12ea1af1637f87b9b4622d46e866952bb022e538c9", size = 185918, upload-time = "2025-06-19T22:48:08.269Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/be/9c/92789c596b8df838baa98fa71844d84283302f7604ed565dafe5a6b5041a/oauthlib-3.3.1-py3-none-any.whl", hash = "sha256:88119c938d2b8fb88561af5f6ee0eec8cc8d552b7bb1f712743136eb7523b7a1", size = 160065, upload-time = "2025-06-19T22:48:06.508Z" },
+]
+
+[[package]]
+name = "ollama"
+version = "0.6.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "httpx" },
+    { name = "pydantic" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/d6/47/f9ee32467fe92744474a8c72e138113f3b529fc266eea76abfdec9a33f3b/ollama-0.6.0.tar.gz", hash = "sha256:da2b2d846b5944cfbcee1ca1e6ee0585f6c9d45a2fe9467cbcd096a37383da2f", size = 50811, upload-time = "2025-09-24T22:46:02.417Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b5/c1/edc9f41b425ca40b26b7c104c5f6841a4537bb2552bfa6ca66e81405bb95/ollama-0.6.0-py3-none-any.whl", hash = "sha256:534511b3ccea2dff419ae06c3b58d7f217c55be7897c8ce5868dfb6b219cf7a0", size = 14130, upload-time = "2025-09-24T22:46:01.19Z" },
 ]
 
 [[package]]
